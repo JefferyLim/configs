@@ -7,3 +7,9 @@ if  [  -f ~/.tmux.conf ];  then
     mv ~/.tmux.conf ~/.tmux.conf.backup
 fi
 cp tmux/tmux.conf ~/.tmux.conf
+
+if [ -f ~/.vimrc ]; then
+    echo "vim configuration found, creating backup..."
+    mv ~/.vimrc ~/.vimrc.backup
+fi
+cp vim/vimrc ~/.vimrc
