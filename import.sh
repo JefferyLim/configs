@@ -13,3 +13,11 @@ if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.backup
 fi
 cp vim/vimrc ~/.vimrc
+
+if [ -d ~/.config/geany/colorschemes/ ];then
+    cp geany/themes/* ~/.config/geany/colorschemes/.
+fi
+
+if [ -d ~/.config/geany ];then
+    cp geany/*.conf ~/.config/geany/.
+fi
