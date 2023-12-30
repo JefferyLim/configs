@@ -22,5 +22,5 @@ done
 mkdir -p ~/.vim/colors
 git clone https://github.com/chriskempson/base16-vim.git ~/.vim/colors/base16
 cp ~/.vim/colors/base16/colors/*.vim ~/.vim/colors/.
-ln -sf "$PWD/dotfiles/vim/vimrc" ~/.vimrc
+ln -sf "$PWD/dotfile/vim/vimrc" ~/.vimrc
 
