@@ -2,22 +2,19 @@
 
 echo "Loading configurations..."
 
-if  [  -f ~/.tmux.conf ];  then
-    echo "tmux configuration found, creating backup..."
-    mv ~/.tmux.conf ~/.tmux.conf.backup
-fi
-cp tmux/tmux.conf ~/.tmux.conf
+for d in confiig/*; do
+    if [ -d "$d" ]; then
+        f=`find "$d" -name "import.sh"`
+        if [ "$f" ]; then
+            source "$f"
+        else
+            ln -sf "$d" ~/.config/$(basename -- $d)
+        fi
+        echo "$d"
+    fi
+done
 
-if [ -f ~/.vimrc ]; then
-    echo "vim configuration found, creating backup..."
-    mv ~/.vimrc ~/.vimrc.backup
-fi
-cp vim/vimrc ~/.vimrc
+# Custom shell commands for each dotfiles
 
-if [ -d ~/.config/geany/colorschemes/ ];then
-    cp geany/themes/* ~/.config/geany/colorschemes/.
-fi
-
-if [ -d ~/.config/geany ];then
-    cp geany/*.conf ~/.config/geany/.
-fi
+## vim
+ln -sf dotfiles/vim/vimrc ~/.vimrc
