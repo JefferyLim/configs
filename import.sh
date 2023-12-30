@@ -2,7 +2,9 @@
 
 echo "Loading configurations..."
 
-for d in confiig/*; do
+mkdir -p ~/.config
+
+for d in config/*; do
     if [ -d "$d" ]; then
         f=`find "$d" -name "import.sh"`
         if [ "$f" ]; then
