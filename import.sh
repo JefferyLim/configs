@@ -4,7 +4,7 @@ echo "Loading configurations..."
 
 mkdir -p ~/.config
 
-for d in dotconfig/*; do
+for d in config/*; do
     if [ -d "$d" ]; then
         f=`find "$d" -name "import.sh"`
         if [ "$f" ]; then
@@ -21,5 +21,5 @@ done
 mkdir -p ~/.vim/colors
 git clone https://github.com/chriskempson/base16-vim.git ~/.vim/colors/base16
 cp ~/.vim/colors/base16/colors/*.vim ~/.vim/colors/.
-ln -sf "$PWD/dotfile/vim/vimrc" ~/.vimrc
+ln -sf "$PWD/file/vim/vimrc" ~/.vimrc
 
