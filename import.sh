@@ -10,7 +10,7 @@ for d in dotconfig/*; do
         if [ "$f" ]; then
             source "$f"
         else
-            ln -sf "$PWD/$d" ~/.config/$(basename -- $d)
+            ln -sf ~/.config/$(basename -- $d) "$PWD/$d"
         fi
         echo "$d"
     fi
