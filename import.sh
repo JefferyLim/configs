@@ -4,7 +4,7 @@ echo "Loading configurations..."
 
 mkdir -p ~/.config
 
-for d in config/*; do
+for d in dotconfig/*; do
     if [ -d "$d" ]; then
         f=`find "$d" -name "import.sh"`
         if [ "$f" ]; then
@@ -17,7 +17,6 @@ for d in config/*; do
 done
 
 # Custom shell commands for each dotfiles
-
 ## vim
 mkdir -p ~/.vim/colors
 git clone https://github.com/chriskempson/base16-vim.git ~/.vim/colors/base16
