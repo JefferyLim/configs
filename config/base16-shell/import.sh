@@ -7,13 +7,22 @@ if [ ! -d ~/.config/base16-shell/ ];then
 fi
 
 command='# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
+export BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             source "$BASE16_SHELL/profile_helper.sh"
             
-    base16_tomorrow-night'
+# Path to the .base16_theme file
+BASE16_THEME="$HOME/.base16_theme"
+
+# Check if the file exists
+if [ ! -f "$BASE16_THEME" ]; then
+    # Place your script to run here, for example:
+    base16_tomorrow-night
+else
+    source $BASE16_THEME
+fi'
 
 grep -Fq "$command" ~/.bashrc || echo "$command" >> ~/.bashrc 
 
-source ~/.bashrc
+. ~/.bashrc
